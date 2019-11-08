@@ -42,7 +42,7 @@ public class OCIStreamingSink extends AbstractSink implements Configurable {
 	final String profile = "DEFAULT";
 
 	public void configure(Context context) {
-		compartmentId = context.getString("topic");
+		compartmentId = context.getString("compartmentId");
 		streamName = context.getString("streamName");
 
 		try {
