@@ -91,7 +91,7 @@ public class OCIStreamingSink extends AbstractSink implements Configurable {
 				List<PutMessagesDetailsEntry> messages = new ArrayList<PutMessagesDetailsEntry>();
 
 				Event event = ch.take();
-				if (event == null) {
+				if (event != null) {
 					String value = new String(event.getBody());
 
 					messages.add(PutMessagesDetailsEntry.builder()
