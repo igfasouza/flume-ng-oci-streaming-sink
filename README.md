@@ -7,7 +7,7 @@ Oracle OCI streaming Sink for flume 1.4.0.
 ### Install
 
     mvn assembly:assembly
-    cp target/flume-ng-oci-streaming-sink-0.0.1-SNAPSHOT-jar-with-dependencies.jar /path/to/flume/libs
+    cp target/flume-ng-oci-streaming-sink-0.0.1-SNAPSHOT-jar-with-dependencies.jar /path/to/flume/lib
 
 ### Configure
 
@@ -28,6 +28,13 @@ This example reads from syslog udp 514, and writes them directly to my-topic in 
     a1.sinks.oci1.type                   = org.apache.flume.sinks.OCIStreamingSink
     a1.sinks.oci1.streamName             = igor
     a1.sinks.oci1.compartmentId          = xxx
+    a1.sinks.oci1.key                    = yourkey
+    a1.sinks.oci1.channel                = c1
+    
+### run
+
+    ./bin/flume-ng agent --conf ./conf/  --conf-file ./conf/yourconffile.conf --name a1
+    
     
 ### Work in progress
 Flume Sink
