@@ -2,7 +2,7 @@
 
 This is not ORACLE official product.
 
-Oracle OCI streaming Sink for flume 1.4.0.
+Oracle OCI streaming Sink for flume 1.9.0.
 
 ### Install
 
