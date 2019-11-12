@@ -11,7 +11,9 @@ Oracle OCI streaming Sink for flume 1.4.0.
 
 ### Configure
 
-This example reads from syslog udp 514, and writes them directly to my-topic in OCI Streaming.
+##Sink
+
+This example reads from syslog udp 514 and writes them directly to my-topic in OCI Streaming.
 
     a1.sources  = r1
     a1.channels = channel1
@@ -30,6 +32,27 @@ This example reads from syslog udp 514, and writes them directly to my-topic in 
     a1.sinks.oci1.compartmentId          = xxx
     a1.sinks.oci1.key                    = yourkey
     a1.sinks.oci1.channel                = c1
+    
+##Source    
+
+This example reads from OCI Streaming and writes them in the log.
+
+    a1.sources = r1
+    a1.channels = c1
+    a1.sinks = oci1
+
+    a1.sources.r1.type = org.apache.flume.source.OCIStreamingSource
+    a1.sources.r1.streamName = igor
+    a1.sources.r1.compartmentId = xxx
+    a1.sources.r1.partition = 0
+    a1.sources.r1.channels = c1
+
+    a1.channels.c1.type = memory
+    a1.channels.c1.capacity = 1000
+    a1.channels.c1.transactionCapacity = 1000
+
+    a1.sinks.oci1.type = logger
+    a1.sinks.oci1.channel = c1
     
 ### run
 
